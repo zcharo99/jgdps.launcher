@@ -22,7 +22,13 @@ namespace JGDPS_Launcher_1._9
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Process.Start("start \".\\1.9JGDPS\\1.9JGDPS.exe\"");
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C start \".\\1.9 JGDPS.exe\"";
+            process.StartInfo = startInfo;
+            process.Start();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -55,9 +61,19 @@ namespace JGDPS_Launcher_1._9
             openform.Show();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Process.Start(new ProcessStartInfo { FileName = "https://onedotnine.ps.fhgdps.com/tools/", UseShellExecute = true });
+        }
 
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo { FileName = "https://discord.gg/3KAbKNDRDN/", UseShellExecute = true });
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo { FileName = "https://onedotnine.ps.fhgdps.com/dashboard/", UseShellExecute = true });
         }
     }
 }
